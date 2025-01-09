@@ -1,16 +1,19 @@
 body {
+
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #001f3f; /* Dark Blue */
-    font-family: Arial, sans-serif;
-    color: white;
+    /* background-color: #001f3f; */
+    background-color: #f1f3f2!important;
+    font-family: Verdana, Arial, sans-serif;
+    /* color: white; */
+    color: black;
     text-align: center;
 }
 
 .center {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 4rem;
+    /* font-weight: bold; */
 }

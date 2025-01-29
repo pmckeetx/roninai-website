@@ -1,20 +1,65 @@
 body {
-
     margin: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #001f3f; */
-    background-color: #f1f3f2!important;
-    font-family: Verdana, Arial, sans-serif;
-    /* color: white; */
+    font-family: Arial, sans-serif;
+    /* background-color: #f1f3f2; */
+    background-color: #e9e9e9;
     color: black;
-    text-align: center;
-    
+}
+
+/* Index page styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .center {
-    font-size: 4rem;
-    /* font-weight: bold; */
+    width: 350px;
+    height: 350px;
+}
+
+.title {
+    text-align: center;
+    font-size: 5rem;
+    margin-top: -45px;
+}
+
+/* Home page styles */
+.header {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.header-title {
+    font-size: 1.75rem;
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+/* Animation styles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+}
+
+.delayed {
+    animation-delay: 1s;
 }

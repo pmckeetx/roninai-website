@@ -1,5 +1,29 @@
 # Peter McKee - Publications & Speaking
 
+## Featured Content
+
+### Articles
+- [Say 'No' to 'NoOps': Why We Can't Afford to Let AI Run Wild](https://devops.com/say-no-to-noops-why-we-cant-afford-to-let-ai-run-wild/) — DevOps.com
+- [Bad Code Stalls Developer Velocity](https://thenewstack.io/bad-code-stalls-developer-velocity/) — The New Stack
+
+### Tutorials
+- [Getting Started with Docker Using Node.js](https://www.docker.com/blog/getting-started-with-docker-using-node-jspart-i/) — Docker Blog
+- [How to Use the NGINX Docker Official Image](https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/) — Docker Blog
+
+### Podcasts
+- [Docker for Python Developers (Episode #308)](https://talkpython.fm/episodes/show/308/docker-for-python-developers-2021-edition) — Talk Python To Me
+- [Leveraging AI for Secure DevOps](https://testguild.com/podcast/performance/p158-peter/) — Test Guild
+
+### Interviews
+- [Head of Developer Relations at Sonar - Interview Series](https://www.unite.ai/peter-mckee-head-of-developer-relations-at-sonar-interview-series/) — Unite.AI
+- [Optimizing the DevOps Workflow with Clean Code](https://techstrong.tv/videos/interviews/optimizing-the-devops-workflow-with-clean-code-peter-mckee-sonar) — Techstrong TV
+
+### Talks & Webinars
+- [Clean Code Principles and Practices](https://www.sonarsource.com/resources/webinars/clean-code-principles-and-practices/) — Sonar Webinar
+- [Continuous Previews: Using IaC to Share Your Application](https://www.pulumi.com/resources/continuous-previews-infrastructure-as-code/) — Pulumi Summit 2021
+
+---
+
 ## Sonar (2023 - Present)
 **Head of Developer Relations & Community**
 
@@ -15,6 +39,7 @@
 | How Developers of All Skill Levels Can Best Leverage AI | Practical guidance for developers using AI coding assistants | External Article | https://www.informationweek.com/software-services/how-developers-of-all-skill-levels-can-best-leverage-ai |
 
 ### Webinars & Talks
+
 
 | Title | Description | Type | URL |
 |-------|-------------|------|-----|

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-Day MVP - Build a Production-Ready MVP with Claude Code | Ronin AI</title>
+  <meta name="description" content="Build a production-ready MVP in 30 days using Claude Code and 30 years of engineering judgment. A course by Peter McKee.">
+  <style>
+    /* ============================================
+       Design Tokens (matching Ronin AI site)
+       ============================================ */
+    :root {
+      --color-bg: #faf8f5;
+      --color-bg-alt: #f5f0eb;
+      --color-white: #ffffff;
+      --color-primary: #c9a090;
+      --color-primary-hover: #b8897a;
+      --color-accent: #e07a6b;
+      --color-heading: #1a1a1a;
+      --color-text: #4a4a4a;
+      --color-text-light: #666666;
+      --color-border: #e5e0db;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+    }
+
+    /* ============================================
+       Base Styles
+       ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-heading);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ============================================
+       Layout
+       ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .container-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ============================================
+       Header
+       ============================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+    }
+
+    .header-logo .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .header-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-heading);
+    }
+
+    .header-cta {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.25rem;
+    }
+
+    /* ============================================
+       Buttons
+       ============================================ */
+    .btn {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-heading);
+      border-color: var(--color-heading);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-heading);
+      color: var(--color-white);
+    }
+
+    .btn-lg {
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+    }
+
+    .btn-accent {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+    }
+
+    .btn-accent:hover {
+      background-color: #cc6a5c;
+      border-color: #cc6a5c;
+    }
+
+    /* ============================================
+       Hero Section
+       ============================================ */
+    .hero {
+      padding: var(--space-3xl) 0;
+      text-align: center;
+      background-color: var(--color-bg);
+    }
+
+    .hero-headline {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      margin-bottom: var(--space-md);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-light);
+      max-width: 700px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       Section Styles
+       ============================================ */
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       Problem Section
+       ============================================ */
+    .problem {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg-alt);
+    }
+
+    .problem-intro {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .problem-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid #dc2626;
+    }
+
+    .problem-card-number {
+      width: 36px;
+      height: 36px;
+      background-color: #fee2e2;
+      color: #dc2626;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .problem-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .problem-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    .problem-closing {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      max-width: 700px;
+      margin: var(--space-xl) auto 0;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       Promise Section
+       ============================================ */
+    .promise {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg);
+    }
+
+    .promise-intro {
+      font-size: 1.15rem;
+      color: var(--color-text);
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .promise-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid var(--color-accent);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .promise-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .promise-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 450px;
+      justify-self: center;
+      width: 100%;
+    }
+
+    .promise-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #dcfce7;
+      color: #16a34a;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .promise-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .promise-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       Instructor Section
+       ============================================ */
+    .instructor {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg-alt);
+    }
+
+    .instructor-content {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .instructor-avatar {
+      width: 120px;
+      height: 120px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    .instructor-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .instructor-info .instructor-tagline {
+      font-size: 1rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: var(--space-md);
+    }
+
+    .instructor-info p {
+      font-size: 1rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+    }
+
+    .instructor-companies {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      margin-top: var(--space-md);
+    }
+
+    .company-tag {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      background-color: var(--color-white);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ============================================
+       Curriculum Section
+       ============================================ */
+    .curriculum {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg);
+    }
+
+    .curriculum-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .curriculum-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .curriculum-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .curriculum-week {
+      width: 48px;
+      height: 48px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .curriculum-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .curriculum-card .curriculum-focus {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .curriculum-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       Audience Section
+       ============================================ */
+    .audience {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg-alt);
+    }
+
+    .audience-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .audience-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+    }
+
+    .audience-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .audience-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .audience-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .audience-for {
+      border-top: 4px solid var(--color-accent);
+    }
+
+    .audience-not {
+      border-top: 4px solid var(--color-border);
+    }
+
+    .icon-yes,
+    .icon-no {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+
+    .icon-yes {
+      background-color: #dcfce7;
+      color: #16a34a;
+    }
+
+    .icon-yes::before {
+      content: '\2713';
+    }
+
+    .icon-no {
+      background-color: #f3f4f6;
+      color: #9ca3af;
+    }
+
+    .icon-no::before {
+      content: '\2715';
+    }
+
+    /* ============================================
+       Final CTA Section
+       ============================================ */
+    .final-cta {
+      padding: var(--space-3xl) 0;
+      background-color: var(--color-bg);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .final-cta p {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+      background-color: var(--color-heading);
+      color: var(--color-white);
+      padding: var(--space-xl) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .footer-brand span {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color var(--transition-fast);
+    }
+
+    .footer a:hover {
+      color: var(--color-white);
+    }
+
+    /* ============================================
+       Responsive Design
+       ============================================ */
+    @media (max-width: 1024px) {
+      .curriculum-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .problem-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+
+      .instructor-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .instructor-avatar {
+        margin: 0 auto;
+      }
+
+      .instructor-companies {
+        justify-content: center;
+      }
+
+      .audience-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .header-cta {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .curriculum-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="https://roninai.com" class="header-logo">
+        <span class="header-title">Ronin AI</span>
+      </a>
+      <a href="#enroll" class="btn btn-primary header-cta">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-headline">Stop Building Prototypes.<br>Start Building Your Company.</h1>
+        <p class="hero-subtitle">Build a production-ready MVP in 30 days using Claude Code and 30 years of engineering judgment.</p>
+        <p class="hero-body">You have the vision. You have the market insight. But until now, you have been stuck between two bad options: spending $20,000 on an agency that might not deliver, or trying to stitch together fragile code from AI prompts that you do not fully understand.</p>
+        <p class="hero-body">Most AI-generated applications are digital houses of cards. They look fine on the surface, but they lack the security, structure, and scalability required to handle real users.</p>
+        <p class="hero-body" style="margin-bottom: var(--space-xl);"><strong>It is time to stop playing with tools and start thinking like an engineer.</strong></p>
+        <div class="hero-ctas">
+          <a href="#enroll" class="btn btn-accent btn-lg">Get Started: Build Your MVP</a>
+          <a href="#curriculum" class="btn btn-secondary btn-lg">See the Curriculum</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+      <div class="container">
+        <h2 class="section-title">The "AI Shortcut" is a Technical Debt Trap</h2>
+        <p class="problem-intro">The internet is full of "AI gurus" promising you can build a SaaS in an afternoon. They are not telling you the truth. When you use AI without a professional framework, you inevitably run into these three walls:</p>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <div class="problem-card-number">1</div>
+            <h3>The Security Gap</h3>
+            <p>Your "working" app has no real authentication or leaves your database exposed to the public.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card-number">2</div>
+            <h3>The Spaghetti Code Mess</h3>
+            <p>After three weeks of building, your app becomes so complex that the AI starts breaking old features while trying to add new ones.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-card-number">3</div>
+            <h3>The Trust Deficit</h3>
+            <p>You are afraid to put your product in front of real customers because you know, deep down, it is held together by luck and bad logic.</p>
+          </div>
+        </div>
+        <p class="problem-closing">You do not need to learn how to write every line of code. You <strong>do</strong> need to learn the high-level architecture and decision-making frameworks that professional engineers use to stay out of trouble.</p>
+      </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section class="promise">
+      <div class="container">
+        <h2 class="section-title">A Production-Ready MVP</h2>
+        <p class="promise-intro">This course is not about "learning to code." It is about <strong>Engineering Leverage.</strong> I will show you how to use Claude Code to build an application that is not just a demo, but a professional foundation. By the end of this 30-day program, you will have:</p>
+        <div class="promise-grid">
+          <div class="promise-card">
+            <div class="promise-icon">&check;</div>
+            <h3>A Secure Core</h3>
+            <p>Implementation of professional-grade authentication and authorization.</p>
+          </div>
+          <div class="promise-card">
+            <div class="promise-icon">&check;</div>
+            <h3>A Real Database</h3>
+            <p>A properly structured data layer that grows with your business.</p>
+          </div>
+          <div class="promise-card">
+            <div class="promise-icon">&check;</div>
+            <h3>Clean Architecture</h3>
+            <p>A codebase that is organized so well that a professional developer could take it over tomorrow without laughing.</p>
+          </div>
+          <div class="promise-card">
+            <div class="promise-icon">&check;</div>
+            <h3>Error Handling</h3>
+            <p>An application that fails gracefully and tells you exactly what went wrong through proper logging.</p>
+          </div>
+          <div class="promise-card">
+            <div class="promise-icon">&check;</div>
+            <h3>Founder Confidence</h3>
+            <p>The technical judgment to know exactly what your AI is building and why.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor">
+      <div class="container">
+        <h2 class="section-title">Why Learn From a Senior Engineer?</h2>
+        <p class="section-subtitle">The world does not need more prompt engineers. It needs more founders who understand software.</p>
+        <div class="instructor-content">
+          <div class="instructor-avatar">PM</div>
+          <div class="instructor-info">
+            <h3>Peter McKee</h3>
+            <p class="instructor-tagline">30+ Years in Software Engineering</p>
+            <p>I have spent over 30 years in the trenches of software engineering. I have helped build the tools that developers use every day.</p>
+            <p>I have seen every way a software project can fail. I am not here to show you a shortcut. I am here to show you the right way to build. I am bringing three decades of "what not to do" to the modern era of AI-assisted development.</p>
+            <p>I will teach you how to treat Claude Code like a senior developer sitting next to you, rather than a magic wand that produces mystery code.</p>
+            <div class="instructor-companies">
+              <span class="company-tag">Docker</span>
+              <span class="company-tag">JFrog</span>
+              <span class="company-tag">Sonar</span>
+              <span class="company-tag">AssemblyAI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum" id="curriculum">
+      <div class="container">
+        <h2 class="section-title">The 30-Day Curriculum</h2>
+        <p class="section-subtitle">Four weeks of structured learning that takes you from idea to deployed, production-ready application.</p>
+        <div class="curriculum-cards">
+          <div class="curriculum-card">
+            <div class="curriculum-week">1</div>
+            <div class="curriculum-focus">The Blueprint</div>
+            <h3>Plan &amp; Design</h3>
+            <p>Define your stack, set up your environment, and map out your data model.</p>
+          </div>
+          <div class="curriculum-card">
+            <div class="curriculum-week">2</div>
+            <div class="curriculum-focus">The Foundation</div>
+            <h3>Secure &amp; Connect</h3>
+            <p>Set up secure authentication, user roles, and database connections.</p>
+          </div>
+          <div class="curriculum-card">
+            <div class="curriculum-week">3</div>
+            <div class="curriculum-focus">The Core Logic</div>
+            <h3>Build &amp; Test</h3>
+            <p>Build out your primary features using clean code principles and AI-driven testing.</p>
+          </div>
+          <div class="curriculum-card">
+            <div class="curriculum-week">4</div>
+            <div class="curriculum-focus">The Hardening</div>
+            <h3>Ship &amp; Deploy</h3>
+            <p>Implement error logging, security audits, and deploy to a production environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="audience">
+      <div class="container">
+        <h2 class="section-title">Is This Course for You?</h2>
+        <div class="audience-cards">
+          <div class="audience-card audience-for">
+            <h3>This is for you if:</h3>
+            <ul>
+              <li><span class="icon-yes"></span>You are a Product Manager, Founder, or "Idea Person" with a specific application in mind.</li>
+              <li><span class="icon-yes"></span>You are tired of no-code tools that "hit a wall" when you need a custom feature.</li>
+              <li><span class="icon-yes"></span>You want to build on nights and weekends without hiring a $150/hour freelancer.</li>
+              <li><span class="icon-yes"></span>You value security and professional standards over "hacks" and "tricks."</li>
+            </ul>
+          </div>
+          <div class="audience-card audience-not">
+            <h3>This is NOT for you if:</h3>
+            <ul>
+              <li><span class="icon-no"></span>You are looking for a "get rich quick" scheme using AI wrappers.</li>
+              <li><span class="icon-no"></span>You want to build a simple landing page (this is for complex, functional applications).</li>
+              <li><span class="icon-no"></span>You are unwilling to learn the fundamental concepts of how software actually works.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="enroll">
+      <div class="container">
+        <h2>Build With Confidence. Not Just Code.</h2>
+        <p>Stop wondering if your application is secure. Stop worrying if your code is a mess. Use the leverage of AI combined with the wisdom of a veteran engineer to build a product you can be proud of.</p>
+        <a href="#" class="btn btn-accent btn-lg">Get Started: Build Your MVP</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span>Ronin AI</span>
+      </div>
+      <p class="footer-copy">&copy; 2025 Ronin AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-Day MVP - Build a Production-Ready MVP with Claude Code | Ronin AI</title>
+  <meta name="description" content="Build a production-ready MVP in 30 days using Claude Code and 30 years of engineering judgment. A course by Peter McKee.">
+  <style>
+    :root {
+      --color-bg: #faf8f5;
+      --color-bg-alt: #f5f0eb;
+      --color-white: #ffffff;
+      --color-primary: #c9a090;
+      --color-primary-hover: #b8897a;
+      --color-accent: #e07a6b;
+      --color-heading: #1a1a1a;
+      --color-text: #4a4a4a;
+      --color-text-light: #666666;
+      --color-border: #e5e0db;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-sm: 4px;
+      --transition-fast: 150ms ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      color: var(--color-heading);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    a { color: inherit; }
+
+    /* ---- Layout ---- */
+    .page-width {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---- Sticky Header ---- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .header-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-heading);
+      text-decoration: none;
+    }
+    .header-cta {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 1.25rem;
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+    .header-cta:hover { background: #cc6a5c; }
+
+    /* ---- Hero ---- */
+    .hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      line-height: 1.1;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* ---- CTA Button (inline) ---- */
+    .cta-block {
+      text-align: center;
+      padding: 2.5rem 0;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: 1rem 2.25rem;
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+    .cta-btn:hover { background: #cc6a5c; }
+    .cta-note {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+    }
+
+    /* ---- Body Copy ---- */
+    .copy {
+      padding: 0 0 1rem;
+    }
+    .copy p {
+      margin: 0 0 1.5rem;
+    }
+    .copy strong {
+      color: var(--color-heading);
+    }
+
+    /* ---- Crossheads (sub-headlines) ---- */
+    .crosshead {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--color-heading);
+      margin: 3.5rem 0 1.25rem;
+      line-height: 1.25;
+    }
+    .crosshead-sm {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-heading);
+      margin: 2.5rem 0 1rem;
+      line-height: 1.3;
+    }
+
+    /* ---- Divider ---- */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 3rem 0;
+    }
+
+    /* ---- Bullet List ---- */
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    .benefit-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    .benefit-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .anti-list li::before {
+      content: '\2715';
+      color: #9ca3af;
+    }
+
+    /* ---- Instructor Block ---- */
+    .instructor-block {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin: 2rem 0;
+    }
+    .instructor-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .instructor-avatar {
+      width: 80px;
+      height: 80px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .instructor-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+    .instructor-title {
+      font-size: 0.95rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    .instructor-block p {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+    }
+    .company-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .company-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      background: var(--color-bg);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ---- Curriculum (simple list) ---- */
+    .curriculum-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      counter-reset: week;
+    }
+    .curriculum-list li {
+      counter-increment: week;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .curriculum-list li:last-child {
+      border-bottom: none;
+    }
+    .week-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+    }
+    .week-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-heading);
+      margin-bottom: 0.25rem;
+    }
+    .week-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* ---- Closing Section ---- */
+    .closing {
+      background: var(--color-bg-alt);
+      padding: 4rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .closing h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .closing p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      background: var(--color-heading);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      body { font-size: 1.05rem; }
+      .hero h1 { font-size: 2rem; }
+      .crosshead { font-size: 1.4rem; }
+      .instructor-header { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="https://roninai.com" class="header-brand">Ronin AI</a>
+      <a href="#enroll" class="header-cta">Join the Cohort</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero page-width">
+      <h1>Stop Building Prototypes.<br>Start Building Your Company.</h1>
+      <p class="lead">Build a production-ready MVP in 30 days using Claude Code and 30 years of engineering judgment.</p>
+      <a href="#enroll" class="cta-btn">Get Started: Build Your MVP</a>
+    </section>
+
+    <hr class="divider page-width">
+
+    <!-- Opening -->
+    <section class="copy page-width">
+
+      <p>You have the vision. You have the market insight.</p>
+
+      <p>But until now, you have been stuck between two bad options: spending $20,000 on an agency that might not deliver, or trying to stitch together fragile code from AI prompts that you do not fully understand.</p>
+
+      <p>And here is the part nobody talks about: <strong>most AI-generated applications are digital houses of cards.</strong> They look fine on the surface, but they lack the security, structure, and scalability required to handle real users.</p>
+
+      <p>It is time to stop playing with tools and start thinking like an engineer.</p>
+
+    </section>
+
+    <!-- Problem: The Three Walls -->
+    <section class="copy page-width">
+
+      <h2 class="crosshead">The "AI Shortcut" is a Technical Debt Trap</h2>
+
+      <p>The internet is full of "AI gurus" promising you can build a SaaS in an afternoon. They are not telling you the truth.</p>
+
+      <p>When you use AI without a professional framework, you inevitably run into three walls:</p>
+
+      <h3 class="crosshead-sm">Wall #1: The Security Gap</h3>
+      <p>Your "working" app has no real authentication. Your database is exposed to the public. You do not even realize it yet, because the demo looked great. But the first time a real user signs up, you are one bad query away from a data breach.</p>
+
+      <h3 class="crosshead-sm">Wall #2: The Spaghetti Code Mess</h3>
+      <p>After three weeks of building, your app becomes so tangled that the AI starts breaking old features while trying to add new ones. You are afraid to touch anything. Every change is a gamble. That is not a product. That is a liability.</p>
+
+      <h3 class="crosshead-sm">Wall #3: The Trust Deficit</h3>
+      <p>You are afraid to put your product in front of real customers because you know, deep down, that it is held together by luck and bad logic. You cannot sell something you do not trust. And right now, you do not trust your own application.</p>
+
+      <p>Here is what matters: <strong>you do not need to learn how to write every line of code.</strong> You do need to learn the high-level architecture and decision-making frameworks that professional engineers use to stay out of trouble.</p>
+
+      <p>That is exactly what this course teaches you.</p>
+
+    </section>
+
+    <!-- Mid-page CTA -->
+    <div class="cta-block">
+      <a href="#enroll" class="cta-btn">Join the 30-Day MVP Cohort</a>
+    </div>
+
+    <!-- Solution: The Promise -->
+    <section class="copy page-width">
+
+      <h2 class="crosshead">This is Not About "Learning to Code"</h2>
+
+      <p>This course is about <strong>Engineering Leverage.</strong></p>
+
+      <p>I will show you how to use Claude Code to build an application that is not just a demo, but a professional foundation. One that a real engineer would look at and nod, not laugh.</p>
+
+      <p>By the end of this 30-day program, you will have:</p>
+
+      <ul class="benefit-list">
+        <li><strong>A Secure Core</strong> &mdash; Professional-grade authentication and authorization. Not a tutorial hack. The real thing.</li>
+        <li><strong>A Real Database</strong> &mdash; A properly structured data layer that grows with your business, not one that falls apart at 100 users.</li>
+        <li><strong>Clean Architecture</strong> &mdash; A codebase organized so well that a professional developer could take it over tomorrow without rewriting it.</li>
+        <li><strong>Proper Error Handling</strong> &mdash; An application that fails gracefully and tells you exactly what went wrong through real logging.</li>
+        <li><strong>Founder Confidence</strong> &mdash; The technical judgment to know exactly what your AI is building and why. No more mystery code.</li>
+      </ul>
+
+      <p>You are not just getting a course. You are getting <strong>the engineering judgment that usually takes a decade to develop,</strong> compressed into a framework you can use right now.</p>
+
+    </section>
+
+    <hr class="divider page-width">
+
+    <!-- Instructor -->
+    <section class="copy page-width">
+
+      <h2 class="crosshead">Your Instructor</h2>
+
+      <p>The world does not need more prompt engineers. It needs more founders who understand software.</p>
+
+      <div class="instructor-block">
+        <div class="instructor-header">
+          <div class="instructor-avatar">PM</div>
+          <div>
+            <div class="instructor-name">Peter McKee</div>
+            <div class="instructor-title">30+ Years in Software Engineering</div>
+          </div>
+        </div>
+        <p>I have spent over 30 years in the trenches of software engineering. I have helped build the tools that developers use every day at companies like Docker, JFrog, Sonar, and AssemblyAI.</p>
+        <p>I have seen every way a software project can fail. I am not here to show you a shortcut. I am here to show you <strong>the right way to build.</strong></p>
+        <p>I am bringing three decades of "what not to do" to the modern era of AI-assisted development. I will teach you how to treat Claude Code like a senior developer sitting next to you, rather than a magic wand that produces mystery code.</p>
+        <div class="company-tags">
+          <span class="company-tag">Docker</span>
+          <span class="company-tag">JFrog</span>
+          <span class="company-tag">Sonar</span>
+          <span class="company-tag">AssemblyAI</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Curriculum -->
+    <section class="copy page-width">
+
+      <h2 class="crosshead">What You Will Build in 30 Days</h2>
+
+      <p>This is a four-week program. Each week builds on the last. By the end, you will have a deployed, production-grade application.</p>
+
+      <ul class="curriculum-list">
+        <li>
+          <div class="week-label">Week 1 &mdash; The Blueprint</div>
+          <div class="week-title">Plan &amp; Design</div>
+          <div class="week-desc">Define your stack, set up your development environment, and map out your data model. You will make the critical decisions that shape everything that follows.</div>
+        </li>
+        <li>
+          <div class="week-label">Week 2 &mdash; The Foundation</div>
+          <div class="week-title">Secure &amp; Connect</div>
+          <div class="week-desc">Set up professional authentication, user roles, and database connections. This is where most AI-built apps fail. Yours will not.</div>
+        </li>
+        <li>
+          <div class="week-label">Week 3 &mdash; The Core Logic</div>
+          <div class="week-title">Build &amp; Test</div>
+          <div class="week-desc">Build out your primary features using clean code principles and AI-driven testing. You will learn how to direct Claude Code like an engineering lead, not a prompt gambler.</div>
+        </li>
+        <li>
+          <div class="week-label">Week 4 &mdash; The Hardening</div>
+          <div class="week-title">Ship &amp; Deploy</div>
+          <div class="week-desc">Implement error logging, run a security audit, and deploy to a production environment. You will go live with confidence.</div>
+        </li>
+      </ul>
+
+    </section>
+
+    <!-- Mid-page CTA -->
+    <div class="cta-block">
+      <a href="#enroll" class="cta-btn">Get Started: Build Your MVP</a>
+    </div>
+
+    <!-- Who It's For -->
+    <section class="copy page-width">
+
+      <h2 class="crosshead">Is This Right for You?</h2>
+
+      <p><strong>This course is for you if:</strong></p>
+
+      <ul class="benefit-list">
+        <li>You are a Product Manager, Founder, or "Idea Person" with a specific application in mind.</li>
+        <li>You are tired of no-code tools that "hit a wall" when you need a custom feature.</li>
+        <li>You want to build on nights and weekends without hiring a $150/hour freelancer.</li>
+        <li>You value security and professional standards over "hacks" and "tricks."</li>
+      </ul>
+
+      <p><strong>This is not for you if:</strong></p>
+
+      <ul class="benefit-list anti-list">
+        <li>You are looking for a "get rich quick" scheme using AI wrappers.</li>
+        <li>You want to build a simple landing page. This course is for complex, functional applications.</li>
+        <li>You are unwilling to learn the fundamental concepts of how software actually works.</li>
+      </ul>
+
+    </section>
+
+    <hr class="divider page-width">
+
+    <!-- Final Close -->
+    <section class="closing" id="enroll">
+      <div class="page-width">
+        <h2>Build With Confidence.<br>Not Just Code.</h2>
+        <p>Stop wondering if your application is secure. Stop worrying if your code is a mess. Use the leverage of AI combined with the wisdom of a veteran engineer to build a product you can be proud of.</p>
+        <a href="#" class="cta-btn">Get Started: Build Your MVP</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Ronin AI. All rights reserved.
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

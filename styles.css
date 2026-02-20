@@ -299,7 +299,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
     flex-wrap: wrap;
 }
 
@@ -309,6 +309,18 @@ img {
     padding: var(--space-sm) var(--space-md);
     background-color: var(--color-bg);
     border-radius: var(--radius-sm);
+}
+
+.trust-logo {
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.trust-logo:hover {
+    opacity: 1;
 }
 
 /* ============================================

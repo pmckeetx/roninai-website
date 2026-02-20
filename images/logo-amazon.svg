@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 45">
+  <!-- Amazon wordmark -->
+  <text x="0" y="28" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" fill="#232f3e" letter-spacing="-0.5">amazon</text>
+  <!-- Orange arrow/smile -->
+  <path d="M2 35 Q40 44 88 35" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round"/>
+  <path d="M82 31 L89 35 L82 40" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

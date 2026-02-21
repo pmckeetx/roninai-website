@@ -1,0 +1,284 @@
+CLAUDE CODE MVP COURSE - LANDING PAGE COPY
+===============================================
+
+[HERO SECTION]
+
+**HEADLINE:**
+"From Idea to Working MVP in Just 30 Days - Even If You've Never Coded Before"
+
+**SUBHEADLINE:**
+Learn the secret system that lets Product Managers build and validate MVPs using Claude Code AI - taught by a senior engineer with 30+ years at Docker, JFrog, Sonar, and AssemblyAI
+
+**HERO CALL-TO-ACTION:**
+[GET INSTANT ACCESS - LIMITED SPOTS AVAILABLE]
+
+---
+
+[PROBLEM SECTION - AGITATION]
+
+**IF YOU'RE A PRODUCT MANAGER, THIS PROBABLY SOUNDS FAMILIAR...**
+
+You have a brilliant product idea that could change everything. You can see it clearly - the user flows, the key features, the market opportunity. You've done the research, validated the concept with customers, and you KNOW this could work.
+
+But then reality hits...
+
+❌ Engineering says it will take 6-9 months to build (if you can get it prioritized)
+❌ The budget request gets stuck in approval hell  
+❌ By the time you get resources, the market opportunity has shifted
+❌ You're forced to describe your vision in PowerPoints instead of showing a working prototype
+❌ Competitors beat you to market while you're still waiting for dev cycles
+
+**The painful truth:** As a Product Manager, you're often the visionary who can't execute the vision. You're dependent on others to bring your ideas to life - and that dependency is killing your speed, your credibility, and your career growth.
+
+What if there was a better way?
+
+---
+
+[SOLUTION SECTION]
+
+**INTRODUCING THE CLAUDE CODE MVP METHOD**
+
+**Finally - A Way for Product Managers to Build Working MVPs in 30 Days**
+
+Imagine walking into your next stakeholder meeting with a live, working prototype instead of another slide deck. Imagine validating your ideas with real users in weeks, not months. Imagine having the independence to move at the speed of your thinking.
+
+That's exactly what the Claude Code MVP Method delivers.
+
+**This isn't about becoming a programmer.** This is about becoming an unstoppable Product Manager who can turn ideas into reality using the most powerful AI coding assistant ever created.
+
+---
+
+[CREDIBILITY SECTION]
+
+**WHO AM I TO TEACH YOU THIS?**
+
+Hi, I'm **Peter McKee** - and I've been building software products for over 30 years.
+
+I've worked as a senior engineer at companies you know and trust:
+• **Docker** - Where I helped build tools that transformed how developers ship software
+• **JFrog** - Contributing to DevOps solutions used by millions of developers worldwide  
+• **Sonar** - Working on code quality tools that power enterprise development
+• **AssemblyAI** - Building cutting-edge AI solutions for speech recognition
+
+**Here's what 30+ years in the trenches taught me:** The biggest bottleneck in product development isn't technology - it's the communication gap between business vision and technical execution.
+
+I've watched brilliant Product Managers get frustrated because they had to translate their vision through multiple layers before seeing it come to life. I've seen game-changing ideas die in backlogs while teams worked on "more important" features.
+
+**That's why I created this course.** To give Product Managers the superpower I wish they'd always had - the ability to build their own MVPs and validate ideas at the speed of thought.
+
+---
+
+[TRANSFORMATION SECTION]
+
+**FROM POWERPOINTS TO PROTOTYPES: THE TRANSFORMATION**
+
+**BEFORE THE CLAUDE CODE MVP METHOD:**
+→ Weeks creating detailed specs and mockups
+→ Months waiting for engineering resources  
+→ Endless back-and-forth explaining requirements
+→ Ideas that die in the backlog
+→ Competitors who move faster
+→ Feeling like a "requirements gatherer" instead of a product builder
+
+**AFTER THE CLAUDE CODE MVP METHOD:**
+→ Working prototypes in days, not months
+→ Real user feedback on actual products
+→ Independence from engineering bottlenecks
+→ Ideas that see the light of day quickly
+→ Competitive advantage through speed
+→ Recognition as a PM who "gets things done"
+
+**This isn't theory - it's a proven system** that leverages Claude Code's AI capabilities specifically for rapid MVP development.
+
+---
+
+[WHAT'S INCLUDED SECTION]
+
+**WHAT YOU'LL GET IN THE CLAUDE CODE MVP METHOD**
+
+**MODULE 1: The MVP Mindset Shift (Week 1)**
+→ Why traditional development processes kill PM agility
+→ The Claude Code advantage: AI-assisted development
+→ Setting up your development environment in 30 minutes
+→ Your first "Hello World" moment with Claude Code
+
+**MODULE 2: Rapid Prototyping Foundations (Week 1-2)**  
+→ The 80/20 rule for MVP features (what to build vs. what to skip)
+→ Wireframe to working app in hours, not weeks
+→ Database design for non-engineers
+→ Authentication and user management made simple
+
+**MODULE 3: Building Core Features (Week 2-3)**
+→ CRUD operations without the complexity
+→ API integration for real-world functionality  
+→ User interface that doesn't look "developer-made"
+→ Testing and debugging with Claude Code assistance
+
+**MODULE 4: Polish and Deploy (Week 3-4)**
+→ Making it look professional (design principles for PMs)
+→ Performance optimization basics
+→ Deployment strategies that work
+→ Analytics and user feedback integration
+
+**MODULE 5: Validation and Iteration (Week 4)**
+→ Getting your MVP in front of real users
+→ Interpreting user behavior and feedback
+→ Rapid iteration cycles with Claude Code
+→ When to hand off to engineering (and how)
+
+**BONUS MATERIALS INCLUDED:**
+✓ Claude Code prompt library for common PM use cases
+✓ MVP feature prioritization framework
+✓ Stakeholder presentation templates for technical demos
+✓ Private community of PM builders
+✓ Monthly Q&A calls with Peter McKee
+✓ Money-back guarantee (60 days, no questions asked)
+
+---
+
+[BENEFITS SECTION]
+
+**THE REAL-WORLD IMPACT ON YOUR PM CAREER**
+
+**IMMEDIATE BENEFITS:**
+→ Build working prototypes for stakeholder meetings in days
+→ Validate ideas with real users before committing engineering resources
+→ Respond to market opportunities in weeks, not months
+→ Gain credibility as a PM who "gets technical stuff"
+
+**LONG-TERM CAREER BENEFITS:**  
+→ Stand out in a crowded PM job market with technical skills
+→ Command higher salaries by bridging business and technical domains
+→ Launch side projects and potentially your own products
+→ Communicate more effectively with engineering teams
+→ Become the PM everyone wants to work with
+
+**BUSINESS IMPACT:**
+→ Reduce time-to-market for new ideas by 70-80%
+→ Lower cost of idea validation (no expensive developer resources)
+→ Higher success rate on product launches (more iterations = better products)
+→ Competitive advantage through speed of execution
+
+---
+
+[SOCIAL PROOF SECTION - PLACEHOLDERS]
+
+**WHAT OTHER PRODUCT MANAGERS ARE SAYING:**
+
+[TESTIMONIAL PLACEHOLDER 1]
+"I went from having ideas stuck in my head to having a working prototype that got approved for full development in just 3 weeks. The Claude Code method is a game-changer for any PM who wants to move fast."
+- **Sarah Chen, Senior PM at [Tech Company]**
+
+[TESTIMONIAL PLACEHOLDER 2]  
+"Peter's course didn't just teach me to build MVPs - it transformed how I think about product development. I'm no longer dependent on engineering timelines for initial validation."
+- **Marcus Rodriguez, PM Director at [SaaS Company]**
+
+[TESTIMONIAL PLACEHOLDER 3]
+"I used Peter's Claude Code system to prototype three different product concepts in my first month. One is now our fastest-growing feature. ROI was immediate."
+- **Jennifer Walsh, VP Product at [Startup]**
+
+**STUDENT RESULTS:**
+→ [XX] Product Managers have built their first MVP in 30 days or less
+→ Average time savings: [XX] weeks compared to traditional development  
+→ [XX]% of students report improved stakeholder confidence
+→ [XX]% got promoted or changed jobs within 6 months of completion
+
+---
+
+[URGENCY SECTION]
+
+**WHY YOU NEED TO ACT NOW**
+
+**The AI revolution is happening with or without you.** While most Product Managers are still waiting for engineering resources, the smart ones are learning to leverage AI tools like Claude Code to become self-sufficient.
+
+**This advantage won't last forever.** Right now, you can be among the first PMs in your company - maybe your industry - to have this capability. But every month you wait is another month your competitors might get ahead.
+
+**Limited Enrollment:** I'm only accepting 50 students in this cohort to ensure everyone gets personal attention and feedback. When these spots are gone, the next enrollment won't open for 3 months.
+
+**Early Bird Pricing Ends Soon:** Get access to the complete Claude Code MVP Method for just $497 (normally $997) - but only if you enroll in the next 7 days.
+
+---
+
+[GUARANTEE SECTION]
+
+**MY IRON-CLAD GUARANTEE TO YOU**
+
+Try the Claude Code MVP Method for 60 days. Build your first MVP. Show it to stakeholders. Get real user feedback.
+
+If you don't feel this course has fundamentally changed your capabilities as a Product Manager, I'll refund every penny - no questions asked.
+
+**Why can I make this guarantee?** Because I've seen this method work for PMs across different industries, experience levels, and technical backgrounds. When you combine Claude Code's AI capabilities with the right framework, the results are predictable.
+
+The only risk is NOT learning these skills while your competition does.
+
+---
+
+[FINAL CALL-TO-ACTION SECTION]
+
+**READY TO TRANSFORM FROM PM TO PRODUCT BUILDER?**
+
+**You have two choices:**
+
+**Choice 1:** Keep doing what you've always done. Wait for engineering resources. Watch competitors move faster. Stay dependent on others to bring your vision to life.
+
+**Choice 2:** Join the Claude Code MVP Method and become the Product Manager who builds working prototypes in 30 days, validates ideas at the speed of thought, and never waits for permission to test a concept.
+
+**The choice is yours. But you have to make it now.**
+
+**[ENROLL NOW - $497 (LIMITED TIME)]**
+
+**What you get immediately:**
+✓ Instant access to all 5 modules
+✓ Bonus materials and templates
+✓ Private community access
+✓ 60-day money-back guarantee
+✓ Personal email support from Peter McKee
+
+**Questions?** Email me directly at peter@[domain].com - I read every email personally.
+
+**Still not sure?** Remember: The Product Managers who learn to leverage AI for rapid prototyping today will be the product leaders of tomorrow. Don't get left behind.
+
+**[FINAL CTA BUTTON: YES, I WANT TO BUILD MVPS IN 30 DAYS]**
+
+---
+
+[FOOTER]
+
+**About Peter McKee**
+Senior Software Engineer | 30+ Years Experience  
+Former: Docker, JFrog, Sonar, AssemblyAI
+Based in Austin, Texas
+
+**Contact:** peter@[domain].com
+**Privacy Policy** | **Terms of Service** | **Refund Policy**
+
+*© 2024 Peter McKee. All rights reserved.*
+
+---
+
+**IMPLEMENTATION NOTES:**
+
+1. **Design Elements Needed:**
+   - Hero image/video of Peter or course preview
+   - Screenshots of Claude Code in action
+   - Student testimonial photos
+   - Progress indicators for the 30-day timeline
+   - Trust badges/company logos where Peter worked
+
+2. **Interactive Elements:**
+   - Countdown timer for limited-time pricing
+   - FAQ accordion section
+   - Exit-intent popup with special offer
+   - Social proof notifications ("3 people enrolled in the last hour")
+
+3. **Technical Elements:**
+   - Mobile-responsive design
+   - Fast page load times
+   - A/B test different headlines
+   - Conversion tracking pixels
+   - Email capture for cart abandonment
+
+4. **Follow-up Sequence:**
+   - Email nurture sequence for those who don't buy immediately
+   - Retargeting ads with different angles
+   - Social proof campaigns featuring student success stories

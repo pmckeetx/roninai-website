@@ -24,7 +24,6 @@ yarn.lock
 dist/
 build/
 out/
-blog/
 
 # Logs
 *.log

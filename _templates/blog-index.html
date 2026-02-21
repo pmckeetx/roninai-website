@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Ronin AI</title>
+  <meta name="description" content="Insights on AI strategy, implementation, and best practices from the Ronin AI team.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="header-logo">
+        <img src="../images/ronin_logo.svg" alt="Ronin AI Logo" class="logo">
+        <span class="header-title">Ronin AI</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#case-studies" class="nav-link">Our Work</a>
+        <a href="index.html" class="nav-link active">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </nav>
+      <a href="../index.html#contact" class="btn btn-primary header-cta">Get Started</a>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="blog-container">
+      <a href="../index.html" class="back-link">&larr; Back to Home</a>
+
+      <header class="blog-index-header">
+        <h1>Blog</h1>
+        <p class="blog-index-subtitle">Insights on AI strategy, implementation, and best practices.</p>
+      </header>
+
+      <div class="blog-posts">
+        {{posts}}
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../images/ronin_logo.svg" alt="Ronin AI Logo" class="logo">
+            <span>Ronin AI</span>
+          </div>
+          <p>Expert AI consulting and strategy to help businesses harness the power of artificial intelligence responsibly and effectively.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index.html#services">AI Assessment</a></li>
+            <li><a href="../index.html#services">Strategy Development</a></li>
+            <li><a href="../index.html#services">Implementation</a></li>
+            <li><a href="../index.html#services">Training & Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#case-studies">Our Work</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../publications.html">Publications</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p><a href="mailto:hello@roninai.com">hello@roninai.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ronin AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+      mobileMenuBtn.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

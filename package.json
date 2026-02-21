@@ -1,0 +1,13 @@
+{
+  "name": "roninai-website",
+  "version": "1.0.0",
+  "description": "Ronin AI website with blog",
+  "scripts": {
+    "build:blog": "node scripts/build-blog.js"
+  },
+  "dependencies": {
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.0"
+  }
+}
